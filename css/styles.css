@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(60, 15, 15);
+    font-size: 20px;
+}
+
+body {
+    background-color:rgb(19, 19, 49);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    background-color:rgb(60, 15, 15);
+    max-width: 700px;
+    margin: 3rem auto 0;
+    padding: 1em;
+    color: white;
+}
+
+.main-header {
+    display: flex;
+    /* margin-bottom: 1rem; */
+}
+
+.main-header__text > h1 {
+    font-size: 40px;
+}
+.main-header__text > h2 {
+    margin-top: 1em;
+    font-size: 20px;
+} 
