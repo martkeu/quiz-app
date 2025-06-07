@@ -1,0 +1,54 @@
+/*-----------------------------------------------------------------------------mk--
+| Global
+|----------------------------------------------------------------------------------
+| 
+*/
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg: rgb(60, 15, 15);
+    --color-text: rgb(255, 255, 255);
+    --color-card-bg: rgb(19, 19, 19);
+    --color-nav-bg: rgb(117, 0, 35);
+    --color-nav-hover: rgb(160, 3, 50);
+
+    font-size: 20px;
+}
+
+body {
+    background-color:rgb(19, 19, 49);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    background-color:rgb(60, 15, 15);
+    background-image: url("../assets/rauschen.png");
+    max-width: 700px;
+    margin: 3rem auto 0;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    color: white;
+}
+
+main {   
+    padding-top: 2rem;
+}

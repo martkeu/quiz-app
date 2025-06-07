@@ -1,0 +1,109 @@
+/*-----------------------------------------------------------------------------mk--
+| Question-Card
+|----------------------------------------------------------------------------------
+| 
+*/
+.question-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    padding: 2.5em 1.5em 1.5em;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(88, 11, 11), 
+                -3px -3px 10px rgb(88, 11, 11);
+    background-image: url("../assets/rauschen.png");
+    background-color: rgb(19, 19, 19);
+    color: green;
+}
+
+.question-card__question {
+    padding: 15px;
+    margin-bottom: 1.5rem;
+    border-radius: 7px;
+    background-color: rgb(70, 10, 40);
+}
+
+#answer-area {
+    background-color: rgb(19, 19, 19);
+    color: white;
+    padding: 19px 7px 17px 7px;
+    border: 2px dashed rgb(86, 6, 6);
+    border-radius: 7px;
+    text-align: center;
+}
+
+.answer-visible {
+    display: block;
+}
+
+.answer-hidden {
+    display: none;
+}
+
+.btnShowAnswer {
+    background-color: rgb(19, 19, 19);
+    color: white;
+    padding: 9px 7px 7px 7px;
+    /* font-size: 18px; */
+    border-radius: 7px;
+    border: 2px solid rgb(86, 6, 6);
+    text-align: center;
+}
+
+.btnShowAnswer:hover {
+    background-color: rgb(78, 4, 4);
+    cursor: pointer;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+/* 
+Hier wohl besser display: grid
+(flex-wrap kann zu unschönen Umbrüchen führen) 
+*/
+.category {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 1rem;
+}
+
+.category > li {
+    display: inline-block;
+    background-color: rgb(55, 0, 0);
+    color: white;
+    padding: 7px 20px 5px 20px;
+    border: 2px solid rgb(86, 6, 6);
+    border-radius: 10px;
+    border: 1px solid rgb(19, 19, 19);
+    cursor: pointer; 
+}
+
+.bookmark {
+    width: 32px; 
+    height: 32px; 
+    position: absolute;
+    top: -16px;
+    right: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bookmark:hover {
+    transform: scale(1.2);
+}
+
+.bookmark-enable {
+    background-color: green;
+}
+
+.bookmark-disable {
+    background-color: rgb(150, 0, 0, 1);
+}
