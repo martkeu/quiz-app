@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------mk--
-| Allgemein
+| Global
 |----------------------------------------------------------------------------------
 | 
 */
@@ -12,7 +12,12 @@
 }
 
 :root {
-    --primary-color: rgb(60, 15, 15);
+    --color-bg: rgb(60, 15, 15);
+    --color-text: rgb(255, 255, 255);
+    --color-card-bg: rgb(19, 19, 19);
+    --color-nav-bg: rgb(117, 0, 35);
+    --color-nav-hover: rgb(160, 3, 50);
+
     font-size: 20px;
 }
 
@@ -20,16 +25,32 @@ body {
     background-color:rgb(19, 19, 49);
 }
 
+body,
+button,
+input,
+select,
+textarea {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: white;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
     background-color:rgb(60, 15, 15);
-    /* max-width: 700px; */
+    background-image: url("../assets/rauschen.png");
+    max-width: 700px;
     margin: 3rem auto 0;
-    margin: 0rem auto 0;
-    padding: 1em;
+    margin: 0 auto;
+    padding: 0 1.5em;
     color: white;
+}
+
+main {   
+    padding-top: 2rem;
 }
 
 /*-----------------------------------------------------------------------------mk--
@@ -37,28 +58,54 @@ body {
 |----------------------------------------------------------------------------------
 | 
 */
-/* .main-header {
-    display: flex;
-    margin-bottom: 1rem;
-} */
+.main-header {
+    color: rgb(0, 128, 0);
+}
 
 .main-header__text {
     text-align: center;
 }
 .main-header__text > h1 {
-    font-size: 40px;
-    
+    padding-top: 0rem;
+    font-size: 44px; 
 }
 .main-header__text > h2 {
-    margin-top: 1em;
-    font-size: 20px;
+    font-size: 24px;
 } 
 
-main {   
-    /* max-height: 650px; 
-    overflow-y: scroll; */
-    padding-top: 2rem;
-    /* padding-right: 1rem; */
+.main-header img {
+    display: none;
+}
+
+/*-----------------------------------------------------------------------------mk--
+| Titel - Großer Viewport
+|----------------------------------------------------------------------------------
+| 
+*/
+@media screen and (min-width: 780px ) {
+    .main-header {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .main-header {
+        color: rgb(0, 128, 0);
+        margin-top: 2rem;
+    }
+
+    .main-header__text {
+        text-align: left;
+    }
+    .main-header__text > h1 {
+        font-size: 44px; 
+    }
+    .main-header__text > h2 {
+        font-size: 24px;
+    } 
+
+    .main-header img {
+        display: block;
+    }
 }
 
 /*-----------------------------------------------------------------------------mk--
@@ -70,36 +117,47 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1em;
-    /* border: 1px solid rgb(119, 26, 26); */
-    box-shadow: 5px 5px 10px rgb(88, 11, 11);
+    gap: 2rem;
+    
+    padding: 2.5em 1.5em 1.5em;
+    margin-bottom: 3rem;
     border-radius: 10px;
-    margin-bottom: 2rem;
+    box-shadow: 3px 3px 10px rgb(88, 11, 11), 
+                -3px -3px 10px rgb(88, 11, 11);
+    background-image: url("../assets/rauschen.png");
     background-color: rgb(19, 19, 19);
-    color: white;
+    color: green;
 }
 
 .question-card__question {
+    padding: 15px;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid rgb(123, 122, 122);
+    border-radius: 7px;
+    background-color: rgb(70, 10, 40);
 }
 
 #answer-area {
     background-color: rgb(19, 19, 19);
     color: white;
     padding: 19px 7px 17px 7px;
-    font-size: 18px;
-    border-radius: 7px;
     border: 2px dashed rgb(86, 6, 6);
+    border-radius: 7px;
     text-align: center;
+}
+
+.answer-visible {
+    display: block;
+}
+
+.answer-hidden {
+    display: none;
 }
 
 .btnShowAnswer {
     background-color: rgb(19, 19, 19);
     color: white;
     padding: 9px 7px 7px 7px;
-    font-size: 18px;
+    /* font-size: 18px; */
     border-radius: 7px;
     border: 2px solid rgb(86, 6, 6);
     text-align: center;
@@ -140,13 +198,19 @@ h3 {
     top: -16px;
     right: 16px;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bookmark:hover {
+    transform: scale(1.2);
 }
 
 .bookmark-enable {
     background-color: green;
 }
+
 .bookmark-disable {
-    background-color: rgba(247, 247, 247, 0.7);
+    background-color: rgb(150, 0, 0, 1);
 }
 
 /*-----------------------------------------------------------------------------mk--
@@ -155,37 +219,54 @@ h3 {
 | 
 */
 .main-navigation {
-    position:fixed;
-    bottom: 0px;
-    width: calc(100% - 1rem);
+    position:sticky;
+    bottom: 0;
 }
 
 .main-navigation ul {
     display: flex;
-    justify-content: space-around;
     list-style: none;
     background-color: rgb(117, 0, 35);
-    align-items: stretch;
-}
-.main-navigation ul li {
-     /* padding-bottom: 0; */
-     flex: 1;
-     text-align: center;
-     padding: 0.7rem 0;
-     border-right: 1px solid rgb(81, 77, 77);
-}
-.main-navigation ul li:last-child {
-     border-right: none;
-}
-.main-navigation ul li:hover {
-     background-color: rgb(160, 3, 50);;
 }
 
-.main-navigation ul li.active {
-     background-color: rgb(160, 3, 50);;
+.main-navigation li {
+    flex: 1;
+    border-right: 3px solid rgb(55, 35, 35);
+    transition: all 0.3s ease-in-out;
+}
+
+.main-navigation li:last-child {
+     border-right: none;
+}
+
+.main-navigation li:hover {
+     background-color: rgb(160, 3, 50);
+}
+
+.main-navigation ul li a.active {
+     background-color: rgb(160, 3, 50);
+}
+
+.main-navigation li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+    padding: 0.9rem 0 0.7rem;
+    text-decoration: none;
 }
 
 .main-navigation img {
-    width: 100%; 
-    height: 32px; 
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 36px;
+    border: 0
+}
+
+.cardbox {
+    width: 150px;
+    height: auto;
+    display: block;
+    filter:sepia(1) brightness(0.5);
 }

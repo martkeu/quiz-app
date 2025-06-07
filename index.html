@@ -8,7 +8,7 @@
 		/>
 		<link rel="icon" href="./public/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="./css/styles.css" />
-		<title>Quiz-App</title>
+		<title>Start - Quiz-App</title>
 	</head>
 
 	<body>
@@ -16,20 +16,22 @@
 			<header class="main-header">
                 <div class="main-header__text">
                     <h1>Karteikarten-Quiz</h1>
-                    <h2>Festige dein Wissen zu HTML, CSS und JavaScript</h2>
+                    <h2>Teste dich, und festige dein Wissen!</h2>
                 </div>
+                <img src="./assets/cardbox.png" alt="Karteikasten" class="cardbox">
 			</header>
 
 			<main>
                 <div class="card-container">
                     <section class="question-card">
-                        <header class="question-card__question">Frage 1</header>
+                        <header class="question-card__question">
+                            What is the answer to the ultimate Question of Life, the Universe, and Everything?
+                        </header>
 
-                        <div id="answer-area">Antwort-Bereich</div>
+                        <div id="answer-area" class="answer-hidden">Antwort-Bereich</div>
 
-                        <button class="btnShowAnswer">Zeige die Antwort</button>
+                        <button class="btnShowAnswer">Zeige mir die Antwort</button>
 
-                        <h3>Quiz-Kategorie:</h3>
                         <ul class="category">
                             <li>HTML</li>
                             <li>CSS</li>
@@ -40,13 +42,14 @@
                     </section>
 
                     <section class="question-card">
-                        <header class="question-card__question">Frage 1</header>
+                        <header class="question-card__question">
+                            What is the answer to the ultimate Question of Life, the Universe, and Everything?
+                        </header>
 
-                        <div id="answer-area">Antwort-Bereich</div>
+                        <div id="answer-area">42</div>
 
-                        <button class="btnShowAnswer">Zeige die Antwort</button>
+                        <button class="btnShowAnswer">Zeige mir die Antwort</button>
 
-                        <h3>Quiz-Kategorie:</h3>
                         <ul class="category">
                             <li>HTML</li>
                             <li>CSS</li>
@@ -56,14 +59,14 @@
                         <img src="./assets/bookmark.svg" alt="Bookmark-Tag" class="bookmark bookmark-enable">
                     </section>
 
-                                        <section class="question-card">
-                        <header class="question-card__question">Frage 1</header>
+                    <section class="question-card">
+                        <header class="question-card__question">Frage 2</header>
 
                         <div id="answer-area">Antwort-Bereich</div>
 
                         <button class="btnShowAnswer">Zeige die Antwort</button>
 
-                        <h3>Quiz-Kategorie:</h3>
+                        <h3>Wähle eine Kategorie:</h3>
                         <ul class="category">
                             <li>HTML</li>
                             <li>CSS</li>
@@ -74,13 +77,13 @@
                     </section>
 
                     <section class="question-card">
-                        <header class="question-card__question">Frage 1</header>
+                        <header class="question-card__question">Frage 2</header>
 
                         <div id="answer-area">Antwort-Bereich</div>
 
                         <button class="btnShowAnswer">Zeige die Antwort</button>
 
-                        <h3>Quiz-Kategorie:</h3>
+                        <h3>Wähle eine Kategorie:</h3>
                         <ul class="category">
                             <li>HTML</li>
                             <li>CSS</li>
@@ -92,15 +95,25 @@
                 </div>
 			</main>
 
-            <nav class="main-navigation">
+            <nav class="main-navigation" role="navigation">
                 <ul>
-                    <li class="active"><a href="index.html"><img src="./assets/house.svg" alt="Startseite"></a></li>
-                    <li><a href="bookmarks.html"><img src="./assets/bookmark.svg" alt="Lesezeichen"></a></li>
-                    <li><a href="profile.html"><img src="./assets/user-round.svg" alt="Pofilseite"></a></li>
+                    <li>
+                        <a class="active" href="index.html">
+                            <img src="./assets/house.svg" alt="Icon Startseite">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bookmarks.html">
+                            <img src="./assets/bookmark.svg" alt="Icon Lesezeichen">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html">
+                            <img src="./assets/user-round.svg" alt="Icon Profilseite">
+                        </a>
+                    </li>
                 </ul>
             </nav>
-
-			<footer class="main-footer"></footer>
 		</div>
 	</body>
 </html>
