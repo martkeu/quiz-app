@@ -2,3 +2,5 @@
 @import './components/header.css';
 @import './components/card.css';
 @import './components/nav.css';
+@import './components/profile.css';
+@import './components/toggle-switch.css';
