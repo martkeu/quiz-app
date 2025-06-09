@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .profile-data__image {
@@ -23,11 +24,18 @@
     border: 6px solid rgb(55, 0, 0);
     border-radius: 50%;
     background-color: rgb(160, 3, 50);
-    background-color: rgb(77, 7, 47);
+    background-color: var(--color-tag-bg);
 }
 
 .profile-data__name {
-    font-size: 48px;
+    color: var(--color-spot-text);
+    font-size: 24px;
+}
+
+@media (min-width: 580px) {
+    .profile-data__name {
+        font-size: 48px;
+    }
 }
 
 section.settings {
@@ -45,18 +53,16 @@ section:last-of-type {
 }
 
 section p {
-    color: rgb(0, 128, 0);
     margin-bottom: 0.7rem;
 }
 
 section h3 {
     margin-bottom: 0.5rem;
-    color: rgb(0, 128, 0);
 }
-section h3 + p{
-    color: white;
+section h3 + p,
+.settings label {
+    color: var(--color-spot-text);
 }
-
 
 /*-----------------------------------------------------------------------------mk--
 | Statistik-Daten
@@ -75,7 +81,8 @@ section h3 + p{
     border: 1px solid rgb(111, 0, 33);
     border-radius: 10px; 
     margin-bottom: 1rem;  
-    background-color: rgb(77, 7, 47);
+    background-color: var(--color-tag-bg);
+    color: var(--color-spot-text);
 }
 
 #amount-questions img,

@@ -6,12 +6,15 @@
 .main-navigation {
     position:sticky;
     bottom: 0;
+
+    /* korrespondiert zu global.css -> .container -> padding: 0 1.5em;*/
+    margin: 0 -1.5em; 
 }
 
 .main-navigation ul {
     display: flex;
     list-style-type: none;
-    background-color: rgb(117, 0, 35);
+    background-color: var(--color-nav-bg);
 }
 
 .main-navigation li {
@@ -25,11 +28,11 @@
 }
 
 .main-navigation li:hover {
-     background-color: rgb(160, 3, 50);
+     background-color: var(--color-nav-hover);
 }
 
 .main-navigation ul li a.active {
-     background-color: rgb(160, 3, 50);
+     background-color: var(--color-nav-hover);
 }
 
 .main-navigation li a {

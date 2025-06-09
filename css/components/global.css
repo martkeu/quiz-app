@@ -13,16 +13,45 @@
 
 :root {
     --color-bg: rgb(60, 15, 15);
-    --color-text: rgb(255, 255, 255);
+    --color-spot-bg: rgb(70, 10, 40);
+    --color-text: rgb(0, 128, 0);
+    --color-spot-text: rgb(255, 255, 255);
+
     --color-card-bg: rgb(19, 19, 19);
+    --color-card-btn: rgb(20, 90, 20);
+
+    --color-tag-bg: rgb(77, 7, 47);
+    --toggle-switch-disc-bg: rgb(57, 7, 0);
+    --bookmark-enable-bg: rgb(0, 150, 0);
+    --bookmark-disable-bg: rgb(150, 0, 0);
+
     --color-nav-bg: rgb(117, 0, 35);
     --color-nav-hover: rgb(160, 3, 50);
+}
 
-    font-size: 20px;
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-bg: rgb(220, 185, 100);
+        --color-spot-bg: rgb(255, 255, 255);
+        --color-text: rgb(17, 17, 17);
+        --color-spot-text: rgb(0, 0, 0);
+
+        --color-card-bg: rgb(240, 230, 200);
+        --color-card-btn: rgba(0, 128, 115, 0);
+
+        --color-tag-bg: rgba(77, 7, 47, 0);
+        --toggle-switch-disc-bg: rgb(228, 179, 1);
+        --bookmark-enable-bg: rgb(0, 179, 0);
+        --bookmark-disable-bg: rgb(184, 191, 3);
+
+        --color-nav-bg: rgb(117, 0, 35);
+        --color-nav-hover: rgb(160, 3, 50);
+    }
 }
 
 body {
     background-color:rgb(19, 19, 49);
+    color: var(--color-text);
 }
 
 body,
@@ -33,20 +62,18 @@ textarea {
     font-family:'Lucida Sans', 'Lucida Sans Regular', sans-serif;
     font-size: 20px;
     line-height: 1.5;
-    color: white;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    background-color:rgb(60, 15, 15);
+    background-color: var(--color-bg);
     background-image: url("../assets/rauschen.png");
-    max-width: 700px;
+    max-width: 820px;
     margin: 3rem auto 0;
     margin: 0 auto;
     padding: 0 1.5em;
-    color: white;
 }
 
 main {   

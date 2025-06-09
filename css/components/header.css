@@ -3,10 +3,6 @@
 |----------------------------------------------------------------------------------
 | 
 */
-.main-header {
-    color: rgb(0, 128, 0);
-}
-
 .main-header__text {
     text-align: center;
 }
@@ -14,6 +10,7 @@
     padding-top: 0rem;
     font-size: 44px; 
 }
+
 .main-header__text > h2 {
     font-size: 24px;
 } 
@@ -27,14 +24,13 @@
 |----------------------------------------------------------------------------------
 | 
 */
-@media screen and (min-width: 780px ) {
+@media screen and (min-width: 780px) {
     .main-header {
         display: flex;
         gap: 2rem;
     }
 
     .main-header {
-        color: rgb(0, 128, 0);
         margin-top: 2rem;
     }
 

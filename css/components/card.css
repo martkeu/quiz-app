@@ -15,20 +15,18 @@
     box-shadow: 3px 3px 10px rgb(88, 11, 11), 
                 -3px -3px 10px rgb(88, 11, 11);
     background-image: url("../assets/rauschen.png");
-    background-color: rgb(19, 19, 19);
-    color: green;
+    background-color: var(--color-card-bg);
 }
 
 .question-card__question {
     padding: 15px;
     margin-bottom: 1.5rem;
     border-radius: 7px;
-    background-color: rgb(70, 10, 40);
+    background-color: var(--color-spot-bg);
 }
 
 #answer-area {
-    background-color: rgb(19, 19, 19);
-    color: white;
+    color: var(--color-spot-text);
     padding: 19px 7px 17px 7px;
     border: 2px dashed rgb(86, 6, 6);
     border-radius: 7px;
@@ -44,17 +42,17 @@
 }
 
 .btnShowAnswer {
-    background-color: rgb(19, 19, 19);
-    color: white;
+    background-color: var(--color-card-btn);
+    color: var(--color-spot-text);
     padding: 9px 7px 7px 7px;
-    /* font-size: 18px; */
+    font-size: 18px;
     border-radius: 7px;
-    border: 2px solid rgb(86, 6, 6);
+    border: 2px solid rgb(0, 128, 0);
     text-align: center;
 }
 
 .btnShowAnswer:hover {
-    background-color: rgb(78, 4, 4);
+    background-color: var(--color-nav-bg);
     cursor: pointer;
 }
 
@@ -72,17 +70,17 @@ Hier wohl besser display: grid
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .category > li {
     display: inline-block;
-    background-color: rgb(55, 0, 0);
-    color: white;
-    padding: 7px 20px 5px 20px;
-    border: 2px solid rgb(86, 6, 6);
+    background-color: var(--color-tag-bg);
+    color:  var(--color-spot-text);
+    padding: 5px 15px 4px 15px;
+    border: 1px solid rgb(19, 19, 19);      
     border-radius: 10px;
-    border: 1px solid rgb(19, 19, 19);
+    font-size: 16px;
     cursor: pointer; 
 }
 
@@ -101,9 +99,19 @@ Hier wohl besser display: grid
 }
 
 .bookmark-enable {
-    background-color: green;
+    background-color: var(--bookmark-enable-bg);
 }
 
 .bookmark-disable {
-    background-color: rgb(150, 0, 0, 1);
+    background-color: var(--bookmark-disable-bg);
+}
+
+
+@media screen and (min-width: 720px) {
+    .card-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+    }
 }
