@@ -31,7 +31,8 @@
      background-color: var(--color-nav-hover);
 }
 
-.main-navigation ul li a.active {
+.main-navigation li a.active,
+.main-navigation li a:focus {
      background-color: var(--color-nav-hover);
 }
 
@@ -50,11 +51,4 @@
     height: auto;
     max-width: 36px;
     border: 0
-}
-
-.cardbox {
-    width: 150px;
-    height: auto;
-    display: block;
-    filter:sepia(1) brightness(0.5);
 }

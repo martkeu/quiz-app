@@ -14,8 +14,15 @@
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgb(88, 11, 11), 
                 -3px -3px 10px rgb(88, 11, 11);
-    background-image: url("../assets/rauschen.png");
+    background-image: url("../../assets/rauschen.png");
     background-color: var(--color-card-bg);
+}
+
+@media (prefers-color-scheme: light) {
+    .question-card {
+        background-image: none;
+        box-shadow: 3px 3px 10px rgb(18, 17, 17);
+    }
 }
 
 .question-card__question {
@@ -42,12 +49,12 @@
 }
 
 .btnShowAnswer {
+    padding: 9px 7px 7px 7px;
+    border: 1px solid rgb(0, 128, 0);
+    border-radius: 7px;
+    font-size: 18px;
     background-color: var(--color-card-btn);
     color: var(--color-spot-text);
-    padding: 9px 7px 7px 7px;
-    font-size: 18px;
-    border-radius: 7px;
-    border: 2px solid rgb(0, 128, 0);
     text-align: center;
 }
 
@@ -56,15 +63,16 @@
     cursor: pointer;
 }
 
-h3 {
-    font-size: 1rem;
-}
-
 /* 
 Hier wohl besser display: grid
 (flex-wrap kann zu unschönen Umbrüchen führen) 
 */
-.category {
+.category__title {
+    margin-bottom: 1em;
+    font-size: 1rem;
+}
+
+.category__items {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -73,7 +81,7 @@ Hier wohl besser display: grid
     gap: 0.5rem;
 }
 
-.category > li {
+.category__items > li {
     display: inline-block;
     background-color: var(--color-tag-bg);
     color:  var(--color-spot-text);
@@ -106,12 +114,10 @@ Hier wohl besser display: grid
     background-color: var(--bookmark-disable-bg);
 }
 
-
 @media screen and (min-width: 720px) {
     .card-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
-
     }
 }

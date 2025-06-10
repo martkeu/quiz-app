@@ -1,8 +1,13 @@
 /*-----------------------------------------------------------------------------mk--
 | Toggle-Switch Styling
 |----------------------------------------------------------------------------------
-| Hell-Dunkel-Modus Auswahl
+| Schaltfläche für die Wahl zwischen einem Hell- und einem Dunkel-Modus.
 */
+:root {
+    --toggle-switch-width: 3.5em;
+    --toggle-switch-height: 1.7em;
+}
+
 .darkwhite-mode {
     > label {
         display: inline-block;
@@ -19,19 +24,20 @@
 
         + span {
             display: inline-block;
-            width: 3.9em;
-            height: 1.7em;
+            width: var(--toggle-switch-width);
+            height: var(--toggle-switch-height);
             position: relative; 
             top: 7px;
             left: 0;
             background-color: var(--color-tag-bg);
             border: 1px solid rgb(111, 0, 33);
-            border-radius: 2.79em;
+            border-radius: 1rem;
+            /*  border-radius: true; */
             
             &::before {
                 display: block;
-                width: 1.6em;
-                height: 1.6em;
+                width: var(--toggle-switch-height);
+                height: var(--toggle-switch-height);
                 position:absolute;
                 top: 0;
                 left: 0;
@@ -45,7 +51,8 @@
         }
 
         &:checked + span::before {
-            left: 57%;
+            left: 50%;
+            left: calc(var(--toggle-switch-width) - var(--toggle-switch-height));
         }
     }
 }
