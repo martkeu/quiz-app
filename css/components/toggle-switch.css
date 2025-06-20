@@ -51,8 +51,8 @@
         }
 
         &:checked + span::before {
-            left: 50%;
+            /* left: 50%; */
             left: calc(var(--toggle-switch-width) - var(--toggle-switch-height));
         }
     }
-}
+}c
