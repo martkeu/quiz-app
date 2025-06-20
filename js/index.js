@@ -153,4 +153,52 @@ function limitCharacterAmount(e) {
 
 }
 
+/*-----------------------------------------------------------------------------mk--
+| Lightness-Mode
+|----------------------------------------------------------------------------------
+| 
+*/
+const bodyEl = document.body;
+const btnDarkWhite = document.querySelector('#dark-white');
+
+setLightness();
+changeLightness();
+
+//Setzt das Hell-Dunkel-Theme aller Seiten
+function setLightness() {
+	const lightMode = localStorage.getItem('light-mode'); 
+	const checkMode = localStorage.getItem('check-mode');
+    
+	if (lightMode === 'true') {
+		bodyEl.classList.add('light-mode');
+	} else {
+		bodyEl.classList.remove('light-mode');
+    }
+    
+    if (btnDarkWhite) {
+        btnDarkWhite.checked = (checkMode === 'true') ? true : false;
+    }
+}
+
+//Ändert das Hell-Dunkel-Theme (auf der Profile-Seite)
+//Diese Seite hat den Button btnDarkWhite!
+function changeLightness() {
+    if (btnDarkWhite) {
+        btnDarkWhite.addEventListener('change', switchMode);
+    }
+}
+
+function switchMode() {
+	if (btnDarkWhite.checked) {
+        bodyEl.classList.add('light-mode');
+        
+        localStorage.setItem('light-mode', true);
+        localStorage.setItem('check-mode', true);
+	} else {
+        bodyEl.classList.remove('light-mode');
+        
+        localStorage.setItem('light-mode', false);
+        localStorage.setItem('check-mode', false);
+	}
+}
 
