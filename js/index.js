@@ -129,3 +129,28 @@ function createBookmarkLabel(srcPath, altText) {
     return labelImg;
 }
 
+/*-----------------------------------------------------------------------------mk--
+| Character-Amount Limitation
+|----------------------------------------------------------------------------------
+| 
+*/
+const textFields = document.querySelectorAll('textarea'); //console.log(textFields)
+
+textFields.forEach(textField => {
+    textField.addEventListener('input', limitCharacterAmount);
+});
+
+
+function limitCharacterAmount(e) {
+    //console.log(e.target.value.length);
+    const charAmount = e.target.value.length;
+
+    e.target.nextElementSibling.textContent = `${charAmount} of 15 allowed characters.`
+
+    if (e.target.value.length > 15) {
+        e.target.nextElementSibling.textContent = `Limit exceeded`
+    }
+
+}
+
+
