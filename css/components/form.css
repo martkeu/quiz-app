@@ -1,0 +1,12 @@
+label {
+    display: block;
+}
+
+.btn-form-submit {
+    margin-top: 3rem;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form div {margin-bottom: 1rem;}

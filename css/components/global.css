@@ -51,6 +51,24 @@
     }
 }
 
+.light-mode {
+    --color-bg: rgb(220, 185, 100);
+        --color-spot-bg: rgb(255, 255, 255);
+        --color-text: rgb(17, 17, 17);
+        --color-spot-text: rgb(0, 0, 0);
+
+        --color-card-bg: rgb(240, 230, 200);
+        --color-card-btn: rgba(0, 128, 115, 0);
+
+        --color-tag-bg: rgba(77, 7, 47, 0);
+        --toggle-switch-disc-bg: rgb(228, 179, 1);
+        --bookmark-enable-bg: rgb(0, 179, 0);
+        --bookmark-disable-bg: rgb(184, 191, 3);
+
+        --color-nav-bg: rgb(117, 0, 35);
+        --color-nav-hover: rgb(160, 3, 50);
+}
+
 body {
     background-color:rgb(31, 31, 61);
     color: var(--color-text);

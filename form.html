@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link rel="icon" href="./public/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="./css/main.css" />
+        <script src="./js/index.js" defer></script>
+		<title>Formular - Quiz-App</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<header class="main-header">
+                <div class="main-header__text">
+                    <h1>Karteikarten-Quiz</h1>
+                    <h2>Teste dich, und festige dein Wissen!</h2>
+                </div>
+                <img src="./assets/cardbox.png" alt="Karteikasten" class="cardbox">
+			</header>
+
+			<main>
+                <form>
+                    <div>
+                        <label for="question">Frage</label>
+                        <textarea name="question" id="question" rows="2" cols="33" maxlength="15"></textarea>
+                        <div data-js="char-amount"></div>
+                    </div>
+                    
+                    <div>
+                        <label for="answer">Antwort</label>
+                        <textarea name="answer" id="answer" rows="2" cols="33" maxlength="15"></textarea>
+                        <div data-js="char-amount"></div>
+                    </div>
+                    
+                    <div>
+                        <label for="tags">Stichwort</label>
+                        <input type="text" name="tags" id="tags">
+                    </div>
+
+                    <button type="submit" class="btn-form-submit" data-js="submit-question">Frage hinzufügen</button>
+                </form>
+
+                <div data-js="pseudo-quiz-card"></div>
+			</main>
+
+            <nav class="main-navigation" role="navigation">
+                <ul>
+                    <li>
+                        <a class="active" href="index.html">
+                            <img src="./assets/house.svg" alt="Icon Startseite">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bookmarks.html">
+                            <img src="./assets/bookmark.svg" alt="Icon Lesezeichen">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="form.html">
+                            <img src="./assets/plus.svg" alt="Icon Pluszeichen">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html">
+                            <img src="./assets/user-round.svg" alt="Icon Profilseite">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+		</div>
+	</body>
+</html>
