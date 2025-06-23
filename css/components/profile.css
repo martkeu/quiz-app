@@ -72,8 +72,8 @@ section h3 + p,
 |----------------------------------------------------------------------------------
 | 
 */
-#amount-questions,
-#amount-bookmarks {
+.amount-questions,
+.amount-bookmarks {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -85,6 +85,7 @@ section h3 + p,
     border-radius: 10px; 
     margin-bottom: 1rem;  
     background-color: var(--color-tag-bg);
+    /* background-color: rgb(160, 200, 13); */
     color: var(--color-spot-text);
 }
 

@@ -16,7 +16,7 @@
     font-size: 24px;
 }
 
-.cardbox {
+.main-header__image {
     width: 150px;
     height: auto;
     display: none;
@@ -31,8 +31,8 @@
 */
 @media screen and (min-width: 780px) {
     .main-header {
-        display: flex;
-        gap: 7rem;
+        display: flex; justify-content: space-between;
+        /* gap: 7rem; */
         margin-top: 2rem;
     }
 
@@ -40,7 +40,8 @@
         text-align: left;
     }
 
-    .cardbox {
+    .main-header__image {
         display: block;
+        margin-right: 3rem;
     }
 }

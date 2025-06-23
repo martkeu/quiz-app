@@ -21,7 +21,8 @@
 @media (prefers-color-scheme: light) {
     .question-card {
         background-image: none;
-        box-shadow: 3px 3px 10px rgb(18, 17, 17);
+        box-shadow: 3px 3px 10px rgb(180, 180, 180), 
+                -3px -3px 10px rgb(180, 180, 180);
     }
 }
 
@@ -32,7 +33,7 @@
     background-color: var(--color-spot-bg);
 }
 
-#answer-area {
+.answer-area {
     color: var(--color-spot-text);
     padding: 19px 7px 17px 7px;
     border: 2px dashed rgb(86, 6, 6);

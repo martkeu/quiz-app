@@ -7,8 +7,8 @@
     position:sticky;
     bottom: 0;
 
-    /* korrespondiert zu global.css -> .container -> padding: 0 1.5em;*/
-    margin: 0 -1.5em; 
+    /* korrespondiert zu global.css -> body -> padding: 0 1em;*/
+    margin: 0 -1em; 
 }
 
 .main-navigation ul {

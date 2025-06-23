@@ -8,99 +8,96 @@
 		/>
 		<link rel="icon" href="./public/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="./css/main.css" />
-        <script src="./js/index.js" defer></script>
-		<title>Profil - Quiz-App</title>
+		<script src="./js/index.js" defer></script>
+		<title>Profil &bullet; Quiz-App</title>
 	</head>
 
 	<body>
-		<div class="container">
-			<header class="main-header">
-				<div class="main-header__text">
-					<h1>Karteikarten-Quiz</h1>
-                    <h2>Profil - Statistik - Einstellungen</h2>
-				</div>
-				<!-- <img src="./assets/cardbox.png" alt="Karteikasten" class="cardbox" /> -->
-			</header>
+		<header class="main-header">
+			<div class="main-header__text">
+				<h1>Karteikarten Quiz</h1>
+				<h2>Profil - Statistik - Einstellungen</h2>
+			</div>
+		</header>
 
-			<main>
-				<div class="profile-container">
-					<section class="settings profile-data">
+		<main>
+			<div class="profile-container">
+				<section class="settings profile-data">
+					<img
+						src="./assets/erwin.png"
+						alt="Benutzer-Foto"
+						class="profile-data__image"
+					/>
+
+					<h2 class="profile-data__name">Erwin Lindemann</h2>
+				</section>
+
+				<section class="settings about-me">
+					<h3>Über mich</h3>
+					<p class="profile-data__me">
+						„Ich heiße Erwin Lindemann, bin Rentner und 66 Jahre. Mit meinem
+						Lottogewinn von 500.000 Mark mache ich erstmal eine Reise nach
+						Island, dann fahre ich mit meiner Tochter nach Rom und besuche
+						eine Papstaudienz. Und im Herbst eröffne ich dann in Wuppertal
+						eine Herrenboutique.“
+					</p>
+				</section>
+
+				<section class="settings statistics">
+					<p>Gestellte Fragen insgesamt</p>
+					<div class="amount-questions">
 						<img
-							src="./assets/erwin.png"
-							alt="Benutzer-Foto"
-							class="profile-data__image"
+							src="./assets/message-circle-question.svg"
+							alt="Lesezeichen"
 						/>
-						<!-- <img
-							src="./assets/user-round.svg"
-							alt="Benutzer-Foto"
-							class="profile-data__image"
-						/> -->
 
-						<h2 class="profile-data__name">Erwin Lindemann</h2>
-					</section>
+						<span>17</span>
+					</div>
 
-					<section class="settings about-me">
-                        <h3>Über mich</h3>
-						<p class="profile-data__me">
-                            „Ich heiße Erwin Lindemann, bin Rentner und 66 Jahre. 
-                            Mit meinem Lottogewinn von 500.000 Mark mache ich erstmal
-                            eine Reise nach Island, dann fahre ich mit meiner Tochter 
-                            nach Rom und besuche eine Papstaudienz. Und im Herbst 
-                            eröffne ich dann in Wuppertal eine Herrenboutique.“
-                        </p>
-					</section>
+					<p>Zu wiederholende Fragen</p>
+					<div class="amount-bookmarks">
+						<img src="./assets/bookmark.svg" 
+                        alt="Lesezeichen" 
+                        />
 
-					<section class="settings statistics">
-						<p>Gestellte Fragen insgesamt</p>                        
-                        <div id="amount-questions">
-                            <img src="./assets/message-circle-question.svg" alt="Lesezeichen" />
+						<span>7</span>
+					</div>
+				</section>
 
-                            <span>17</span>
-                        </div>
-                        
-						<p>Zu wiederholende Fragen</p>
-                        <div id="amount-bookmarks">
-                            <img src="./assets/bookmark.svg" alt="Lesezeichen" />
+				<section class="settings darkwhite-mode">
+					<p>Erscheinungsbild</p>
+					<label for="dark-white">
+						<input type="checkbox" id="dark-white" />
 
-                            <span>7</span>
-                        </div>
-					</section>
+						Dunkel <span aria-hidden="true"></span> Hell
+					</label>
+				</section>
+			</div>
+		</main>
 
-					<section class="settings darkwhite-mode">
-						<p>Erscheinungsbild</p>
-						<label for="dark-white">
-							<input type="checkbox" id="dark-white" />
-
-							Dunkel <span aria-hidden="true"></span> Hell
-						</label>
-					</section>
-				</div>
-			</main>
-
-			<nav class="main-navigation" role="navigation">
-				<ul>
-					<li>
-						<a href="index.html">
-							<img src="./assets/house.svg" alt="Icon Startseite" />
-						</a>
-					</li>
-					<li>
-						<a href="bookmarks.html">
-							<img src="./assets/bookmark.svg" alt="Icon Lesezeichen" />
-						</a>
-					</li>
-                    <li>
-                        <a href="form.html">
-                            <img src="./assets/plus.svg" alt="Icon Pluszeichen">
-                        </a>
-                    </li>
-					<li>
-						<a class="active" href="profile.html">
-							<img src="./assets/user-round.svg" alt="Icon Profilseite" />
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
+		<nav class="main-navigation">
+			<ul>
+				<li>
+					<a href="index.html">
+						<img src="./assets/house.svg" alt="Icon Startseite" />
+					</a>
+				</li>
+				<li>
+					<a href="bookmarks.html">
+						<img src="./assets/bookmark.svg" alt="Icon Lesezeichen" />
+					</a>
+				</li>
+				<li>
+					<a href="form.html">
+						<img src="./assets/plus.svg" alt="Icon Pluszeichen" />
+					</a>
+				</li>
+				<li>
+					<a href="profile.html" class="active">
+						<img src="./assets/user-round.svg" alt="Icon Profilseite" />
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</body>
 </html>

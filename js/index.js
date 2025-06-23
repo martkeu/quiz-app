@@ -3,18 +3,18 @@
 |----------------------------------------------------------------------------------
 | 
 */
-const btnBookmarks = document.querySelectorAll('.bookmark');
+const btnBookmarks = document.querySelectorAll(".bookmark");
 
-btnBookmarks.forEach(btn => btn.addEventListener('click', switchBookmark));
+btnBookmarks.forEach((btn) => btn.addEventListener("click", switchBookmark));
 
-function switchBookmark(e) {
-    if (e.target.classList.contains('bookmark-disable')) {
-        e.target.classList.remove('bookmark-disable');
-        e.target.classList.add('bookmark-enable');
-    }else {
-        e.target.classList.remove('bookmark-enable');
-        e.target.classList.add('bookmark-disable');
-    }
+function switchBookmark(event) {
+  if (event.target.classList.contains("bookmark-disable")) {
+    event.target.classList.remove("bookmark-disable");
+    event.target.classList.add("bookmark-enable");
+  } else {
+    event.target.classList.remove("bookmark-enable");
+    event.target.classList.add("bookmark-disable");
+  }
 }
 
 /*-----------------------------------------------------------------------------mk--
@@ -22,183 +22,222 @@ function switchBookmark(e) {
 |----------------------------------------------------------------------------------
 | 
 */
-const btnShowAnswer = document.querySelectorAll('.btnShowAnswer');
-const answerArea = document.querySelector('.answer-area');
+const btnShowAnswer = document.querySelectorAll(".btnShowAnswer");
+const answerArea = document.querySelector(".answer-area");
 
-btnShowAnswer.forEach(btn => btn.addEventListener('click', switchAnswer));
+btnShowAnswer.forEach((btn) => btn.addEventListener("click", switchAnswer));
 
-function switchAnswer(e) {
-    if (e.target.previousElementSibling.classList.contains('answer-hidden')) {
-        e.target.previousElementSibling.classList.remove('answer-hidden');
-        e.target.previousElementSibling.classList.add('answer-visible');
-        e.target.textContent = "Antwort ausblenden";
-    }
-    else {
-        e.target.previousElementSibling.classList.remove('answer-visible');
-        e.target.previousElementSibling.classList.add('answer-hidden');
-        e.target.textContent = "Antwort einblenden";
-    }
+function switchAnswer(event) {
+  if (event.target.previousElementSibling.classList.contains("answer-hidden")) {
+    event.target.previousElementSibling.classList.remove("answer-hidden");
+    event.target.previousElementSibling.classList.add("answer-visible");
+    event.target.textContent = "Antwort ausblenden";
+  } else {
+    event.target.previousElementSibling.classList.remove("answer-visible");
+    event.target.previousElementSibling.classList.add("answer-hidden");
+    event.target.textContent = "Antwort einblenden";
+  }
 }
 
 /*-----------------------------------------------------------------------------mk--
-| Create New Cards
+| Create Card
 |----------------------------------------------------------------------------------
 | 
 */
-const createCardForm = document.querySelector('form');
+const quizCardForm = document.querySelector('[data-js="quiz-card"]');
 const pseudoCard = document.querySelector('[data-js="pseudo-quiz-card"]');
 
-if (createCardForm) {
-    createCardForm.addEventListener('submit', createCard);
+if (quizCardForm) {
+  quizCardForm.addEventListener("submit", createCard);
 }
 
-function createCard(event) { 
-    event.preventDefault(); //console.log('ok');
+function createCard(event) {
+  event.preventDefault(); //console.log('ok');
 
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData); //console.log(data);
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData); //console.log(data);
 
-    const questionCard = document.createElement('section');
-    questionCard.setAttribute('class', "question-card");
+  const quizCard = document.createElement("section");
+  quizCard.setAttribute("class", "question-card");
 
-    questionCard.appendChild(createQuestion(data.question));
-    questionCard.appendChild(createAnswer(data.answer));
-    questionCard.appendChild(showAnswer());
-    questionCard.appendChild(createTag(data.tags));
-    questionCard.appendChild(createBookmarkLabel("./assets/bookmark.svg", "Bookmark-Tag"));
+  quizCard.appendChild(getQuestion(data.question));
+  quizCard.appendChild(getAnswer(data.answer));
+  quizCard.appendChild(toggleAnswer());
+  if (data.tags.trim(" ") !== "") {
+    quizCard.appendChild(getTag(data.tags));
+  }
+  quizCard.appendChild(
+    getBookmarkImage("./assets/bookmark.svg", "Bookmark-Tag")
+  );
 
-    pseudoCard.appendChild(questionCard);
+  pseudoCard.appendChild(quizCard);
+
+  quizCardForm.reset();
+  document.querySelector("#question").focus();
+
+  const charAmount = document.querySelectorAll('[data-js="char-amount"]');
+  charAmount.forEach((item) => {
+    item.textContent = "";
+  });
 }
 
 //---------------------------------------------------------------------
+// Card Helper-Functions
+//---------------------------------------------------------------------
+//Erstellt ein Header-Element und platziert eine Frage hinein.
+function getQuestion(question) {
+  const headerEl = document.createElement("header");
+  const textCont = document.createTextNode(question);
 
-function createQuestion(question) {
-    const headerEl = document.createElement('header');
-    const textCont = document.createTextNode(question);
+  headerEl.setAttribute("class", "question-card__question");
 
-    headerEl.setAttribute('class', "question-card__question");
+  headerEl.appendChild(textCont);
 
-    headerEl.appendChild(textCont);
-
-    return headerEl;
+  return headerEl;
 }
 
-function createAnswer(answer) {
-    const answerEl = document.createElement('div');
-    const textCont = document.createTextNode(answer);
+//Erstellt ein Div-Element und platziert die (versteckte) Antwort hinein.
+function getAnswer(answer) {
+  const answerEl = document.createElement("div");
+  const textCont = document.createTextNode(answer);
 
-    answerEl.classList.add("answer-area");
-    answerEl.classList.add("answer-visible"); //später: answer-hidden
+  answerEl.classList.add("answer-area");
+  answerEl.classList.add("answer-hidden");
 
-    answerEl.appendChild(textCont);
+  answerEl.appendChild(textCont);
 
-    return answerEl;
+  return answerEl;
 }
 
-function showAnswer() {
-    const answerBtn = document.createElement('button');
-    const textCont = document.createTextNode('Zeige mir die Antwort');
+//Erstellt ein Button-Element, das die Antwort ein- bzw. ausblendet.
+function toggleAnswer() {
+  const answerBtn = document.createElement("button");
+  const textCont = document.createTextNode("Antwort einblenden");
 
-    answerBtn.setAttribute('class', "btnShowAnswer");
+  answerBtn.classList.add("btnShowAnswer");
 
-    answerBtn.appendChild(textCont);
+  answerBtn.appendChild(textCont);
 
-    return answerBtn;
+  answerBtn.addEventListener("click", switchAnswer);
+
+  return answerBtn;
 }
 
-function createTag(tag) {
-    const listEl = document.createElement('ul');
-    listEl.setAttribute('class', "category__items")
+//Erstellt ein List-Element, und platziert ein Stichwort hinein.
+function getTag(tag) {
+  const listEl = document.createElement("ul");
+  listEl.setAttribute("class", "category__items");
 
-    const listItem = document.createElement('li');
-    const textCont = document.createTextNode(tag); 
+  const listItem = document.createElement("li");
+  const textCont = document.createTextNode(tag);
 
-    listItem.appendChild(textCont);    
+  listItem.appendChild(textCont);
+  listEl.appendChild(listItem);
+
+  return listEl;
+}
+
+//Erstellt List-Elemente, aus Leerzeichen-separierten Stichworten.
+function getTags(tags) {
+  const tagsArray = tags.split(" ");
+
+  const listEl = document.createElement("ul");
+  listEl.setAttribute("class", "category__items");
+
+  for (let i = 0; i < tagsArray.length; i++) {
+    if (tagsArray[i] === "") {
+      continue;
+    }
+
+    const listItem = document.createElement("li");
+    const textCont = document.createTextNode(tagsArray[i]);
+
+    listItem.appendChild(textCont);
     listEl.appendChild(listItem);
+  }
 
-    return listEl;
+  return listEl;
 }
 
-function createBookmarkLabel(srcPath, altText) {
-    const labelImg = document.createElement('img');
+//Erstellt ein Image-Element zu einem Datei-Pfad und einer Alt-Angabe,
+//und erlaubt eine Style-Änderung per Click-Event.
+function getBookmarkImage(srcPath, altText) {
+  const image = document.createElement("img");
 
-    labelImg.setAttribute('src', srcPath);
-    labelImg.setAttribute('alt', altText);
-    labelImg.setAttribute('class', 'bookmark bookmark-disable');
+  image.setAttribute("src", srcPath);
+  image.setAttribute("alt", altText);
+  image.setAttribute("class", "bookmark bookmark-disable");
 
-    return labelImg;
+  image.addEventListener("click", switchBookmark);
+
+  return image;
 }
 
 /*-----------------------------------------------------------------------------mk--
 | Character-Amount Limitation
 |----------------------------------------------------------------------------------
-| 
+| Zeigt die Anzahl eingetippter und die Maximalzahl eintippbarer Zeichen an.
 */
-const textFields = document.querySelectorAll('textarea'); //console.log(textFields)
+const textFields = document.querySelectorAll('[data-js="text-area"]'); //console.log(textFields)
 
-textFields.forEach(textField => {
-    textField.addEventListener('input', limitCharacterAmount);
+textFields.forEach((textField) => {
+  textField.addEventListener("input", limitCharacterAmount);
 });
 
+function limitCharacterAmount(event) {
+  const charAmount = event.target.value.length;
 
-function limitCharacterAmount(e) {
-    //console.log(e.target.value.length);
-    const charAmount = e.target.value.length;
-
-    e.target.nextElementSibling.textContent = `${charAmount} of 15 allowed characters.`
-
-    if (e.target.value.length > 15) {
-        e.target.nextElementSibling.textContent = `Limit exceeded`
-    }
-
+  event.target.nextElementSibling.textContent = `
+        You typed ${charAmount} of 30 allowed characters.
+    `;
 }
 
 /*-----------------------------------------------------------------------------mk--
 | Lightness-Mode
 |----------------------------------------------------------------------------------
-| 
+| - Wechselt das Helligkeits-Theme zischen Dunkel und Hell
+| - Seitenübergreifend unter Verwendung des Local Storage.
 */
 const bodyEl = document.body;
-const btnDarkWhite = document.querySelector('#dark-white');
+const btnDarkWhite = document.querySelector("#dark-white");
 
 setLightness();
 changeLightness();
 
 //Setzt das Hell-Dunkel-Theme aller Seiten
 function setLightness() {
-	const lightMode = localStorage.getItem('light-mode'); 
-	const checkMode = localStorage.getItem('check-mode');
-    
-	if (lightMode === 'true') {
-		bodyEl.classList.add('light-mode');
-	} else {
-		bodyEl.classList.remove('light-mode');
-    }
-    
-    if (btnDarkWhite) {
-        btnDarkWhite.checked = (checkMode === 'true') ? true : false;
-    }
+  const lightMode = localStorage.getItem("light-mode");
+  const checkMode = localStorage.getItem("check-mode");
+
+  if (lightMode === "true") {
+    bodyEl.classList.add("light-mode");
+  } else {
+    bodyEl.classList.remove("light-mode");
+  }
+
+  if (btnDarkWhite) {
+    btnDarkWhite.checked = checkMode === "true" ? true : false;
+  }
 }
 
 //Ändert das Hell-Dunkel-Theme (auf der Profile-Seite)
 //Diese Seite hat den Button btnDarkWhite!
 function changeLightness() {
-    if (btnDarkWhite) {
-        btnDarkWhite.addEventListener('change', switchMode);
-    }
+  if (btnDarkWhite) {
+    btnDarkWhite.addEventListener("change", switchMode);
+  }
 }
 
 function switchMode() {
-	if (btnDarkWhite.checked) {
-        bodyEl.classList.add('light-mode');
-        
-        localStorage.setItem('light-mode', true);
-        localStorage.setItem('check-mode', true);
-	} else {
-        bodyEl.classList.remove('light-mode');
-        
-        localStorage.setItem('light-mode', false);
-        localStorage.setItem('check-mode', false);
-	}
-}
+  if (btnDarkWhite.checked) {
+    bodyEl.classList.add("light-mode");
 
+    localStorage.setItem("light-mode", true);
+    localStorage.setItem("check-mode", true);
+  } else {
+    bodyEl.classList.remove("light-mode");
+
+    localStorage.setItem("light-mode", false);
+    localStorage.setItem("check-mode", false);
+  }
+}

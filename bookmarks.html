@@ -8,88 +8,97 @@
 		/>
 		<link rel="icon" href="./public/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="./css/main.css" />
-        <script src="./js/index.js" defer></script>
-		<title>Lesezeichen - Quiz-App</title>
+		<script src="./js/index.js" defer></script>
+		<title>Lesezeichen &bullet; Quiz-App</title>
 	</head>
 
 	<body>
-		<div class="container">
-			<header class="main-header">
-                <div class="main-header__text">
-                    <h1>Karteikarten-Quiz</h1>
-                    <h2>Teste dich, und festige dein Wissen!</h2>
-                </div>
-                <img src="./assets/cardbox.png" alt="Karteikasten" class="cardbox">
-			</header>
+		<header class="main-header">
+			<div class="main-header__text">
+				<h1>Karteikarten Quiz</h1>
+				<h2>Teste dich, und festige dein Wissen!</h2>
+			</div>
+			<img
+				src="./assets/cardbox.png"
+				alt="Karteikasten"
+				class="main-header__image"
+			/>
+		</header>
 
-			<main>
-                <div class="card-container">
-                    <section class="question-card">
-                        <header class="question-card__question">
-                            What is the answer to the ultimate Question of Life, the Universe, and Everything?
-                        </header>
+		<main>
+			<div class="card-container">
+				<section class="question-card">
+					<header class="question-card__question">
+						What is the answer to the ultimate Question of Life, the
+						Universe, and Everything?
+					</header>
 
-                        <div id="answer-area">42</div>
+					<div class="answer-area answer-hidden">42</div>
 
-                        <button class="btnShowAnswer">Zeige mir die Antwort</button>
+					<button class="btnShowAnswer">Antwort einblenden</button>
 
-                        <div class="category">
-                            <h3 class="category__title">Wähle eine Kategorie:</h3>
-                            <ul class="category__items">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JavaScript</li>
-                            </ul>
-                        </div>
-                        
-                        <img src="./assets/bookmark.svg" alt="Bookmark-Tag" class="bookmark bookmark-enable">
-                    </section>
+					<div class="category">
+						<ul class="category__items">
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>JavaScript</li>
+						</ul>
+					</div>
 
-                    <section class="question-card">
-                        <header class="question-card__question">Frage 2</header>
+					<img
+						src="./assets/bookmark.svg"
+						alt="Bookmark-Tag"
+						class="bookmark bookmark-enable"
+					/>
+				</section>
 
-                        <div id="answer-area">Antwort-Bereich</div>
+				<section class="question-card">
+					<header class="question-card__question">Frage 2</header>
 
-                        <button class="btnShowAnswer">Zeige die Antwort</button>
+					<div class="answer-area answer-hidden">Antwort-Bereich</div>
 
-                        <div class="category">
-                            <h3 class="category__title">Wähle eine Kategorie:</h3>
-                            <ul class="category__items">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JavaScript</li>
-                            </ul>
-                        </div>
-                        
-                        <img src="./assets/bookmark.svg" alt="Bookmark-Tag" class="bookmark bookmark-enable">
-                    </section>
-                </div>
-			</main>
+					<button class="btnShowAnswer">Antwort einblenden</button>
 
-            <nav class="main-navigation" role="navigation">
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            <img src="./assets/house.svg" alt="Icon Startseite">
-                        </a>
-                    </li>
-                    <li>
-                        <a class="active" href="bookmarks.html">
-                            <img src="./assets/bookmark.svg" alt="Icon Lesezeichen">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="form.html">
-                            <img src="./assets/plus.svg" alt="Icon Pluszeichen">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="profile.html">
-                            <img src="./assets/user-round.svg" alt="Icon Profilseite">
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-		</div>
+					<div class="category">
+						<ul class="category__items">
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>JavaScript</li>
+						</ul>
+					</div>
+
+					<img
+						src="./assets/bookmark.svg"
+						alt="Bookmark-Tag"
+						class="bookmark bookmark-enable"
+					/>
+				</section>
+			</div>
+		</main>
+
+		<nav class="main-navigation">
+			<ul>
+				<li>
+					<a href="index.html">
+						<img src="./assets/house.svg" alt="Icon Startseite" />
+					</a>
+				</li>
+				<li>
+					<a href="bookmarks.html" class="active">
+						<img src="./assets/bookmark.svg" alt="Icon Lesezeichen" />
+					</a>
+				</li>
+				<li>
+					<a href="form.html">
+						<img src="./assets/plus.svg" alt="Icon Pluszeichen" />
+					</a>
+				</li>
+				<li>
+					<a href="profile.html">
+						<img src="./assets/user-round.svg" alt="Icon Profilseite" />
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</body>
 </html>

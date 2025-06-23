@@ -8,69 +8,90 @@
 		/>
 		<link rel="icon" href="./public/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="./css/main.css" />
-        <script src="./js/index.js" defer></script>
-		<title>Formular - Quiz-App</title>
+		<script src="./js/index.js" defer></script>
+		<title>Formular &bullet; Quiz-App</title>
 	</head>
 
 	<body>
-		<div class="container">
-			<header class="main-header">
-                <div class="main-header__text">
-                    <h1>Karteikarten-Quiz</h1>
-                    <h2>Teste dich, und festige dein Wissen!</h2>
-                </div>
-                <img src="./assets/cardbox.png" alt="Karteikasten" class="cardbox">
-			</header>
+		<header class="main-header">
+			<div class="main-header__text">
+				<h1>Karteikarten Quiz</h1>
+				<h2>Erstelle eine Frage, die dich herausfordert!</h2>
+			</div>
+			<img
+				src="./assets/cardbox.png"
+				alt="Karteikasten"
+				class="main-header__image"
+			/>
+		</header>
 
-			<main>
-                <form>
-                    <div>
-                        <label for="question">Frage</label>
-                        <textarea name="question" id="question" rows="2" cols="33" maxlength="15"></textarea>
-                        <div data-js="char-amount"></div>
-                    </div>
-                    
-                    <div>
-                        <label for="answer">Antwort</label>
-                        <textarea name="answer" id="answer" rows="2" cols="33" maxlength="15"></textarea>
-                        <div data-js="char-amount"></div>
-                    </div>
-                    
-                    <div>
-                        <label for="tags">Stichwort</label>
-                        <input type="text" name="tags" id="tags">
-                    </div>
+		<main>
+			<form class="quiz-card" data-js="quiz-card">
+				<div>
+					<label for="question">Frage</label>
+					<textarea
+						name="question"
+						id="question"
+						rows="2"
+						cols="33"
+						maxlength="30"
+                        required
+						autofocus
+                        data-js="text-area"
+					></textarea>
+					<div class="char-amount" data-js="char-amount"></div>
+				</div>
 
-                    <button type="submit" class="btn-form-submit" data-js="submit-question">Frage hinzufügen</button>
-                </form>
+				<div>
+					<label for="answer">Antwort</label>
+					<textarea
+						name="answer"
+						id="answer"
+						rows="2"
+						cols="33"
+						maxlength="30"
+                        required
+                        data-js="text-area"
+					></textarea>
+					<div class="char-amount" data-js="char-amount"></div>
+				</div>
 
-                <div data-js="pseudo-quiz-card"></div>
-			</main>
+				<div>
+					<label for="tags">Stichwort</label>
+					<input type="text" name="tags" id="tags" />
+				</div>
 
-            <nav class="main-navigation" role="navigation">
-                <ul>
-                    <li>
-                        <a class="active" href="index.html">
-                            <img src="./assets/house.svg" alt="Icon Startseite">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="bookmarks.html">
-                            <img src="./assets/bookmark.svg" alt="Icon Lesezeichen">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="form.html">
-                            <img src="./assets/plus.svg" alt="Icon Pluszeichen">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="profile.html">
-                            <img src="./assets/user-round.svg" alt="Icon Profilseite">
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-		</div>
+				<button type="submit" class="btn-form-submit" data-js="submit-question">
+					Karte hinzufügen
+				</button>
+			</form>
+
+			<div data-js="pseudo-quiz-card"></div>
+		</main>
+
+		<nav class="main-navigation">
+			<ul>
+				<li>
+					<a href="index.html">
+						<img src="./assets/house.svg" alt="Icon Startseite" />
+					</a>
+				</li>
+				<li>
+					<a href="bookmarks.html">
+						<img src="./assets/bookmark.svg" alt="Icon Lesezeichen" />
+					</a>
+				</li>
+				<li>
+					<a href="form.html" class="active">
+						<img src="./assets/plus.svg" alt="Icon Pluszeichen" />
+					</a>
+				</li>
+				<li>
+					<a href="profile.html">
+						<img src="./assets/user-round.svg" alt="Icon Profilseite" />
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</body>
 </html>
